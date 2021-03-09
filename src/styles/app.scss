@@ -1,2 +1,9 @@
 @import 'utils/variables';
 @import 'components/type';
+
+.color {
+    width: 100px;
+    height: 100px;
+    display: block;
+    border-radius: 100000px;
+}
