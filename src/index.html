@@ -14,17 +14,28 @@
 </head>
 <body>
   <h1>Expérimentation TFE</h1>
-  <button id="clickme">Play</button>
-  <p id="colorP">180</p>
-  <p id="satP">50</p>
-  <p id="lumP">50</p>
 
-  <div class="color" style="background-color: rgb(64, 191, 191);"></div>
+  <div class="container">
+    <div class="color" style="background-color: rgb(64, 191, 191);"></div>
 
-  <input id="colorValue" type="range" name="volume" min="0" max="360">
-  <input id="satValue" type="range" name="volume" min="0" max="100">
-  <input id="lumValue" type="range" name="volume" min="0" max="100">
- 
+    <div class="param">
+      <label>Teinte: <span data-p="color" id="inputP">180</span>°</label>
+      <input id="input" data-input="color" type="range" name="volume" min="0" max="360">
+    </div>
+
+    <div class="param">
+      <label>Saturation: <span data-p="sat" id="inputP">50</span>%</label>
+      <input id="input" data-input="sat" type="range" name="volume" min="0" max="100">
+    </div>
+
+    <div class="param">
+      <label>Luminiosité: <span data-p="lum" id="inputP">50</span>%</label>
+      <input id="input" data-input="lum" type="range" name="volume" min="0" max="100">
+    </div>
+
+    <button class="play-btn" id="clickme">Play</button>
+  </div>
+  
   
   <script src="scripts/app.js"></script>
 </body>
