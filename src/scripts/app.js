@@ -5,35 +5,49 @@ var myBuffer;
 var input = document.querySelectorAll('#input');
 var p = document.querySelectorAll('#inputP');
 
+//Récupère les inputs
 var inputs = [];
-var ps = [];
-
 var count = 0;
 
-//Récupère les inputs
 input.forEach((input) => {
   inputs[count] = input;
   count++;
 });
-count = 0;
+
+//Récupère les values
+var inputsValue = [];
+var count = 0;
+input.forEach((input) => {
+  inputsValue[count] = input.value;
+  count++;
+});
 
 //Récupère les P
+var ps = [];
+count = 0;
 p.forEach((p) => {
   ps[count] = p;
   count++;
 });
 
-console.log(inputs);
-console.log(ps);
+var lumValue = 0;
+var satValue = 0;
+var colorValue = 0;
 
-//Déclare les p et innerHTLM les valeurs des inputs
+function declareValues() {
+  lumValue = inputs[2].value;
+  satValue = inputs[1].value;
+  colorValue = inputs[0].value;
+};
 
+//Lorsqu'on déplace le slider, récupère la bonne value, la modifie dans le span comme dans la couleur
 var color = document.querySelector('.color');
-
 for (let i = 0; i < inputs.length; i++) {
   inputs[i].addEventListener('input', function () {
+    declareValues();
+
     p[i].innerHTML = inputs[i].value;
-    color.style.backgroundColor = "hsl("+inputs[0].value+", "+inputs[1].value+"%, "+inputs[2].value+"%)"
+    color.style.backgroundColor = "hsl("+colorValue+", "+satValue+"%, "+lumValue+"%)"
     }, false);
 };
 
@@ -45,7 +59,7 @@ request.open('GET', './assets/mp3/guitare.mp3', true);
 console.log('Request done');
 request.responseType = 'arraybuffer';
 
-// Decode asynchronously
+// Decode asynchronously ???
 request.onload = function() {
   context.decodeAudioData(request.response, function(theBuffer) {
     myBuffer = theBuffer;
@@ -55,17 +69,15 @@ request.onload = function() {
 request.send();
 
 function playSound(buffer) {
-  var source = context.createBufferSource(), g = context.createGain();
-  source.buffer = buffer;
-  source.start(0);
+  declareValues();
 
-  //Récupère les valeurs des sliders
-  var lumValue = inputs[2].value;
-  var satValue = inputs[1].value;
+  //Crée ma source et un effet "gain"
+  var source = context.createBufferSource();
+  var g = context.createGain();
 
   //Si la couleur est lumineuse, alors le son s'estompe également
   if(lumValue > 50) {
-    var lumValue = 100 - lumValue;
+    lumValue = 100 - lumValue;
     console.log(lumValue);
   }else{
     lumValue = lumValue;
@@ -79,6 +91,9 @@ function playSound(buffer) {
     console.log(lumValue);
     g.gain.value = lumValue/100;
   }
+
+  source.buffer = buffer;
+  source.start(0);
 
   //Connecte la source
   source.connect(g);
