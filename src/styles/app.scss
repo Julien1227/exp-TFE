@@ -1,7 +1,16 @@
 @import 'utils/variables';
 @import 'components/type';
 
+h1 {
+    text-align: center;
+}
+
 .container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -9,12 +18,12 @@
 }
 
 .color {
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
+    margin-bottom: 2rem;
+
     display: block;
     border-radius: 100000px;
-
-    margin-bottom: 3rem;
 }
 
 .param {
@@ -25,7 +34,12 @@
     max-width: 400px;
 }
 
-.play-btn {
-    margin-top: 3rem;
-    padding: 2rem;
+.btn-group {
+    display: flex;
+}
+
+.btn {
+    margin: 1rem;
+    margin-top: 2rem;
+    padding: 1rem;
 }
