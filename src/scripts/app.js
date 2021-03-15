@@ -80,16 +80,16 @@ function playSound(buffer) {
   
 
   //Si la couleur est lumineuse, alors le son s'estompe également
-  if(lumValue > 50) {
+  if(lumValue >= 50) {
     lumValue = 100 - lumValue;
     console.log(lumValue);
   }
 
   //Prends la valeur la plus basse et l'utilise pour le gain
-  if(satValue < lumValue){
+  if(satValue <= lumValue){
     console.log(satValue);
     g.gain.value = satValue/100;
-  }else if(lumValue < satValue){
+  }else if(lumValue <= satValue){
     console.log(lumValue);
     g.gain.value = lumValue/100;
   }
