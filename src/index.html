@@ -12,30 +12,31 @@
   
   <link rel="stylesheet" href="styles/app.css">
 </head>
-<body>
-  <h1>Expérimentation TFE</h1>
-
+<body class="color" style="background-color: rgb(64, 191, 191);">
   <div class="container">
-    <div class="color" style="background-color: rgb(64, 191, 191);"></div>
-
-    <div class="param">
-      <label>Teinte: <span data-p="color" id="inputP">180</span>°</label>
-      <input id="input" data-input="color" type="range" name="volume" min="0" max="360">
-    </div>
-
-    <div class="param">
-      <label>Saturation: <span data-p="sat" id="inputP">50</span>%</label>
-      <input id="input" data-input="sat" type="range" name="volume" min="0" max="100">
-    </div>
-
-    <div class="param">
-      <label>Luminiosité: <span data-p="lum" id="inputP">50</span>%</label>
-      <input id="input" data-input="lum" type="range" name="volume" min="0" max="100">
-    </div>
-
-    <div class="btn-group">
-      <button class="btn" id="clickstart">Play</button>
-      <button class="btn" id="clickstop">Pause</button>
+    <div class="container-div">
+      <h1>Expérimentation TFE</h1>
+      <div class="div">
+        <div class="param">
+          <label>Teinte: <span data-p="color" id="inputP">180</span>°</label>
+          <input id="input" data-input="color" type="range" name="volume" min="0" max="360">
+        </div>
+    
+        <div class="param">
+          <label>Saturation: <span data-p="sat" id="inputP">50</span>%</label>
+          <input id="input" data-input="sat" type="range" name="volume" min="0" max="100">
+        </div>
+    
+        <div class="param">
+          <label>Luminiosité: <span data-p="lum" id="inputP">50</span>%</label>
+          <input id="input" data-input="lum" type="range" name="volume" min="0" max="100">
+        </div>
+    
+        <div class="btn-group">
+          <button class="btn" id="clickstart">Play</button>
+          <button class="btn" id="clickstop">Pause</button>
+        </div>
+      </div>
     </div>
   </div>
   

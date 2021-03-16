@@ -91,7 +91,7 @@ for (let i = 0; i < inputs.length; i++) {
     request.onload = function() {
       context.decodeAudioData(request.response, function(theBuffer) {
         myBuffer = theBuffer;
-        console.log(theBuffer);
+        //console.log(theBuffer);
       });
     }
     request.send();
